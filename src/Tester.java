@@ -10,5 +10,6 @@ public class Tester {
         SonarThreeCheck upDown2 = new SonarThreeCheck(new File("src/DayOne/depths.txt"));
         System.out.println(upOrDown.numOfChanges(true));
         System.out.println(upDown2.numOfChanges(true));
+
     }
 }
