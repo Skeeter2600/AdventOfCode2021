@@ -12,13 +12,20 @@ public class PositionUpdater {
     private final List<Integer> distance;
     private final List<String> direction;
 
+    /**
+     * This class is used to determine the distance traveled
+     * using a file of movements
+     *
+     * @param file the file that contains the movements and distance
+     */
     public PositionUpdater(File file) {
         this.distance = new ArrayList<>();
         this.direction = new ArrayList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(" ");
+                String[] values = line.split(" ");  // break the direction and distance
                 direction.add(values[0]);
                 distance.add(Integer.valueOf(values[1]));
             }
@@ -27,6 +34,12 @@ public class PositionUpdater {
         }
     }
 
+    /**
+     * This function will go through the list of directions and distances
+     * and generate the horizontal and vertical distance to get the total
+     *
+     * @return the total distanced moved from start
+     */
     public int distanceAway(){
         int forward = 0;
         int depth = 0;

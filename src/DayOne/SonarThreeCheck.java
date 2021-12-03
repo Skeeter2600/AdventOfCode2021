@@ -11,6 +11,12 @@ public class SonarThreeCheck {
 
     private final List<Integer> depths;
 
+    /**
+     * This class is used to how often the depth changes when looking at
+     * the last three depths as a combination
+     *
+     * @param file the file of depths to be made into a list
+     */
     public SonarThreeCheck(File file) {
         this.depths = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -23,6 +29,16 @@ public class SonarThreeCheck {
         }
     }
 
+    /**
+     * This function will go through all depths and calculate the
+     * number of increases or decreases based on input by totaling
+     * the last three depths and comparing them to the next three
+     *
+     * @param upOrDown true for increases and false for decreases
+     *
+     * @return the number of times the depth either increased
+     *         or decreased
+     */
     public int numOfChanges(boolean upOrDown){
         int changes = 0;
         int previous1 = -1;

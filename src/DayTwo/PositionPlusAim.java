@@ -11,6 +11,12 @@ public class PositionPlusAim {
     private final List<Integer> distance;
     private final List<String> direction;
 
+    /**
+     * This class is used to determine the distance traveled
+     * using a file of movements
+     *
+     * @param file the file that contains the movements and distance
+     */
     public PositionPlusAim(File file) {
         this.distance = new ArrayList<>();
         this.direction = new ArrayList<>();
@@ -26,6 +32,13 @@ public class PositionPlusAim {
         }
     }
 
+    /**
+     * This function will go through the list of directions and distances
+     * and generate the horizontal and vertical distance to get the total
+     * by using an aim for a vector of speed and angle
+     *
+     * @return the total distanced moved from start
+     */
     public int distanceAway(){
         int horizontal = 0;
         int depth = 0;

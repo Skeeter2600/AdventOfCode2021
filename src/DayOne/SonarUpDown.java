@@ -8,6 +8,10 @@ public class SonarUpDown {
 
     private final List<Integer> depths;
 
+    /**
+     * This class is used to how often a depth changes
+     * @param file the file of depths to be made into a list
+     */
     public SonarUpDown(File file) {
         this.depths = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -20,9 +24,18 @@ public class SonarUpDown {
         }
     }
 
+    /**
+     * This function will go through all depths and calculate the
+     * number of increases or decreases based on input
+     *
+     * @param upOrDown true for increases and false for decreases
+     *
+     * @return the number of times the depth either increased
+     *         or decreased
+     */
     public int numOfChanges(boolean upOrDown){
         int changes = 0;
-        int previous = -1;
+        int previous = -1;  // no depth will ever be negative after set
 
         for (int value : depths){
             if (previous != -1){
